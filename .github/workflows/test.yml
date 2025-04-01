@@ -3,12 +3,12 @@ name: Run PowerShell Script
 on:
   workflow_dispatch:
     inputs:
-      username:
-        description: "Enter the username"
+      FirstName:
+        description: "Enter the first name"
         required: true
         type: string
-      useremail:
-        description: "Enter the user email"
+      LastName:
+        description: "Enter the last name"
         required: true
         type: string
 
@@ -23,5 +23,5 @@ jobs:
       - name: Display User Inputs
         shell: pwsh
         run: |
-          Write-Host "The entered username is: ${{ github.event.inputs.username }}"
-          Write-Host "The entered user email is: ${{ github.event.inputs.useremail }}"
+          Write-Host "The entered username is: ${{ github.event.inputs.FirstName }}"
+          Write-Host "The entered user email is: ${{ github.event.inputs.LastName }}"
