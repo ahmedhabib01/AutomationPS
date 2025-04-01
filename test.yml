@@ -3,12 +3,12 @@ name: Run PowerShell Script
 on:
   workflow_dispatch:
     inputs:
-      firstname:
-        description: "Enter the first name"
+      username:
+        description: "Enter the username"
         required: true
         type: string
-      lastname:
-        description: "Enter the last name"
+      useremail:
+        description: "Enter the user email"
         required: true
         type: string
 
@@ -20,7 +20,8 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Run PowerShell Script with Inputs
+      - name: Display User Inputs
         shell: pwsh
         run: |
-          ./onboardFile.ps1 -Username "${{ github.event.inputs.firstname }}" -UserEmail "${{ github.event.inputs.lastname }}"
+          Write-Host "The entered username is: ${{ github.event.inputs.username }}"
+          Write-Host "The entered user email is: ${{ github.event.inputs.useremail }}"
