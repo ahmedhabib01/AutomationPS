@@ -23,5 +23,5 @@ jobs:
       - name: Display User Inputs
         shell: pwsh
         run: |
-          Write-Host "The entered username is: ${{ github.event.inputs.FirstName }}"
-          Write-Host "The entered user email is: ${{ github.event.inputs.LastName }}"
+          Write-Host "First Name is: ${{ github.event.inputs.FirstName }}"
+          Write-Host "Last Name is: ${{ github.event.inputs.LastName }}"
