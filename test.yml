@@ -1,0 +1,26 @@
+name: Run PowerShell Script
+
+on:
+  workflow_dispatch:
+    inputs:
+      firstname:
+        description: "Enter the first name"
+        required: true
+        type: string
+      lastname:
+        description: "Enter the last name"
+        required: true
+        type: string
+
+jobs:
+  run-powershell:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Run PowerShell Script with Inputs
+        shell: pwsh
+        run: |
+          ./onboardFile.ps1 -Username "${{ github.event.inputs.firstname }}" -UserEmail "${{ github.event.inputs.lastname }}"
