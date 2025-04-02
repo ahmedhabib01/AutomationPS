@@ -1,9 +1,7 @@
 name: Run PowerShell Script
 
+
 on:
-    push:
-      branches:
-        - Ahmed_YamlTest
     workflow_dispatch:
       inputs:
         FirstName:
@@ -14,6 +12,7 @@ on:
           description: "Enter the last name"
           required: true
           type: string
+  
 jobs:
   run-powershell:
     runs-on: windows-latest
