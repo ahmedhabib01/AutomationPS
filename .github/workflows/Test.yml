@@ -1,17 +1,19 @@
 name: Run PowerShell Script
 
 on:
-  workflow_dispatch:
-    inputs:
-      FirstName:
-        description: "Enter the first name"
-        required: true
-        type: string
-      LastName:
-        description: "Enter the last name"
-        required: true
-        type: string
-
+    push:
+      branches:
+        - Ahmed_YamlTest
+    workflow_dispatch:
+      inputs:
+        FirstName:
+          description: "Enter the first name"
+          required: true
+          type: string
+        LastName:
+          description: "Enter the last name"
+          required: true
+          type: string
 jobs:
   run-powershell:
     runs-on: windows-latest
