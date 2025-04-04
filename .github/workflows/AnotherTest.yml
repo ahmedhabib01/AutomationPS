@@ -1,0 +1,28 @@
+name: Run Script
+
+
+on:
+    workflow_dispatch:
+      inputs:
+        FirstName:
+          description: "Enter the first name"
+          required: true
+          type: string
+        LastName:
+          description: "Enter the last name"
+          required: true
+          type: string
+  
+jobs:
+  run-powershell:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Display User Inputs
+        shell: pwsh
+        run: |
+          Write-Host "First Name is: ${{ github.event.inputs.FirstName }}"
+          Write-Host "Last Name is: ${{ github.event.inputs.LastName }}"
